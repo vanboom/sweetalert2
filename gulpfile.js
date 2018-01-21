@@ -12,14 +12,7 @@ const browserSync = require('browser-sync').create()
 const pack = require('./package.json')
 const utils = require('./utils/package-rollup') // TODO: Once this file stabilizes, make this line `const packageRollup = require('./utils/package-rollup')`
 
-gulp.task('compress', ['js-lint', 'commonjs', 'dev', 'production', 'all', 'all.min'])
-
-gulp.task('commonjs', () => {
-  return utils.packageRollup({
-    dest: 'dist/' + pack.name + '.common.js',
-    format: 'cjs'
-  })
-})
+gulp.task('compress', ['js-lint', 'dev', 'production', 'all', 'all.min'])
 
 gulp.task('dev', ['js-lint'], () => {
   return utils.packageRollup({
