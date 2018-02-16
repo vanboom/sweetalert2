@@ -7,25 +7,25 @@ const simulateMouseEvent = (x, y, eventType) => {
   $(document.elementFromPoint(x, y)).trigger(event)
 }
 
-QUnit.test('overlay click', (assert) => {
+QUnit.test('backdrop click', (assert) => {
   const done = assert.async()
 
   swal({
-    title: 'Overlay click',
+    title: 'Backdrop click',
     animation: false
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'overlay'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.backdrop})
     done()
   })
 
   $('.swal2-container').click()
 })
 
-QUnit.test('popup mousedown, overlay mouseup', (assert) => {
+QUnit.test('popup mousedown, backdrop mouseup', (assert) => {
   const done = assert.async()
 
   swal({
-    title: 'popup mousedown, overlay mouseup',
+    title: 'popup mousedown, backdrop mouseup',
     animation: false
   })
 
@@ -38,11 +38,11 @@ QUnit.test('popup mousedown, overlay mouseup', (assert) => {
   })
 })
 
-QUnit.test('overlay mousedown, popup mouseup', (assert) => {
+QUnit.test('backdrop mousedown, popup mouseup', (assert) => {
   const done = assert.async()
 
   swal({
-    title: 'overlay mousedown, popup mouseup',
+    title: 'backdrop mousedown, popup mouseup',
     animation: false
   })
 
@@ -80,7 +80,7 @@ QUnit.test('allowOutsideClick: () => !swal.isLoading()', (assert) => {
     allowOutsideClick: () => !swal.isLoading(),
     animation: false
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'overlay'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.backdrop})
     done()
   })
 

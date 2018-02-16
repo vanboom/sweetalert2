@@ -15,6 +15,9 @@
   <a href="https://gitter.im/sweetalert2/Lobby"><img alt="Gitter" src="https://badges.gitter.im/Join%20Chat.svg"></a>
   <a href="https://www.patreon.com/limonte"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
   <a href="https://www.paypal.me/limonte/5eur"><img alt="PayPal Donate" src="http://ionicabizau.github.io/badges/paypal.svg"></a>
+  <a href="#backers"><img alt="Backers on Open Collective" src="https://opencollective.com/SweetAlert2/backers/badge.svg"></a>
+  <a href="#sponsors"><img alt="Sponsors on Open Collective" src="https://opencollective.com/SweetAlert2/sponsors/badge.svg"></a>
+
 </p>
 
 <p align="center">
@@ -114,8 +117,9 @@ swal({
       'Your imaginary file has been deleted.',
       'success'
     )
-  // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
-  } else if (result.dismiss === 'cancel') {
+  // For more information about handling dismissals please visit
+  // https://sweetalert2.github.io/#handling-dismissals
+  } else if (result.dismiss === swal.DismissReason.cancel) {
     swal(
       'Cancelled',
       'Your imaginary file is safe :)',
@@ -140,12 +144,35 @@ Browser compatibility
 Note that SweetAlert2 **does not** and **will not** provide support or functionality of any kind on IE10 and lower.
 
 
+Related projects
+-------------------------
+
+- [ngx-sweetalert2](https://github.com/sweetalert2/ngx-sweetalert2) - Angular 4+ integration
+- [sweetalert2-adonisjs-nuxtjs](https://github.com/sweetalert2/sweetalert2-adonisjs-nuxtjs) - AdonisJS + Nuxt.js demo
+- [sweetalert2-webpack-demo](https://github.com/sweetalert2/sweetalert2-webpack-demo) - webpack demo
+
+
+Related community projects
+-------------------------
+
+- [avil13/vue-sweetalert2](https://github.com/avil13/vue-sweetalert2) - Vue.js wrapper
+- [softon/sweetalert](https://github.com/softon/sweetalert) - Laravel 5 Package
+- [alex-shamshurin/sweetalert2-react](https://github.com/alex-shamshurin/sweetalert2-react) - React component
+
+
 Collaborators
 -------------
 
 | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/toverux) | [![](https://avatars2.githubusercontent.com/u/4542461?v=4&s=80)](https://github.com/birjolaxew) | [![](https://avatars1.githubusercontent.com/u/5918348?v=4&s=80)](https://github.com/samturrell) | [![](https://avatars3.githubusercontent.com/u/9093699?v=4&s=80)](https://github.com/acupajoe) | [![](https://avatars3.githubusercontent.com/u/3198597?v=4&s=80)](https://github.com/zenflow) | [![](https://avatars2.githubusercontent.com/u/895831?v=4&s=80)](https://github.com/patrickhlauke) |
 |-|-|-|-|-|-|
 | [@toverux](https://github.com/toverux) | [@birjolaxew](https://github.com/birjolaxew) | [@samturrell](https://github.com/samturrell) | [@acupajoe](https://github.com/acupajoe) | [@zenflow](https://github.com/zenflow) | [@patrickhlauke](https://github.com/patrickhlauke) |
+
+
+Contributors
+------------
+
+This project exists thanks to all the people who contribute.
+<a href="graphs/contributors"><img src="https://opencollective.com/SweetAlert2/contributors.svg?width=890&button=false" /></a>
 
 
 Contributing
@@ -167,27 +194,40 @@ If you would like to contribute enhancements or fixes, please do the following:
   - via CLI: `npm test`
 
 
-Related projects
--------------------------
-
-- [ngx-sweetalert2](https://github.com/sweetalert2/ngx-sweetalert2) - Angular 4+ integration
-- [sweetalert2-adonisjs-nuxtjs](https://github.com/sweetalert2/sweetalert2-adonisjs-nuxtjs) - AdonisJS + Nuxt.js demo
-- [sweetalert2-webpack-demo](https://github.com/sweetalert2/sweetalert2-webpack-demo) - webpack demo
-
-
-Related community projects
--------------------------
-
-- [avil13/vue-sweetalert2](https://github.com/avil13/vue-sweetalert2) - Vue.js wrapper
-- [softon/sweetalert](https://github.com/softon/sweetalert) - Laravel 5 Package
-- [alex-shamshurin/sweetalert2-react](https://github.com/alex-shamshurin/sweetalert2-react) - React component
-
 Donations
 ---------
 
-Has SweetAlert2 helped you create an amazing application? You can show your support by making a donation in one of two ways:
+Has SweetAlert2 helped you create an amazing application? You can show your support by making a donation in one of several ways:
 
-- https://www.paypal.me/limonte/5eur
-- https://www.patreon.com/limonte
+- [Donate via PayPal](https://www.paypal.me/limonte/5eur)
+- [Donate via Patreon](https://www.patreon.com/limonte)
+- [Become a backer on OpenCollective](https://opencollective.com/SweetAlert2#backer)
+- [Become a sponsor on OpenCollective](https://opencollective.com/SweetAlert2#sponsor)
+
 
 ### [Hall of Donators :trophy:](DONATIONS.md)
+
+
+### Backers
+
+Thank you to all our backers! 🙏
+
+<a href="https://opencollective.com/SweetAlert2#backers" target="_blank"><img src="https://opencollective.com/SweetAlert2/backers.svg?width=890"></a>
+
+
+### Sponsors
+
+If you support this project by becoming a sponsor, your logo will show up here with a link to your website.
+
+<a href="https://opencollective.com/SweetAlert2/sponsor/0/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/1/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/2/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/3/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/4/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/5/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/6/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/7/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/8/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/SweetAlert2/sponsor/9/website" target="_blank"><img src="https://opencollective.com/SweetAlert2/sponsor/9/avatar.svg"></a>
+
+

@@ -619,7 +619,7 @@ QUnit.test('esc key', (assert) => {
   swal({
     title: 'Esc me'
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'esc'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.esc})
     done()
   })
 
@@ -664,7 +664,7 @@ QUnit.test('close button', (assert) => {
     title: 'Close button test',
     showCloseButton: true
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'close'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.close})
     done()
   })
 
@@ -679,7 +679,7 @@ QUnit.test('cancel button', (assert) => {
   swal({
     title: 'Cancel me'
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'cancel'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.cancel})
     done()
   })
 
@@ -693,7 +693,7 @@ QUnit.test('timer', (assert) => {
     timer: 10,
     animation: false
   }).then((result) => {
-    assert.deepEqual(result, {dismiss: 'timer'})
+    assert.deepEqual(result, {dismiss: swal.DismissReason.timer})
     done()
   })
 })
@@ -846,3 +846,26 @@ QUnit.test('backdrop accepts css background param', (assert) => {
   assert.ok($('.swal2-container')[0].style.background.includes(backdrop))
 })
 
+QUnit.test('preConfirm return false', (assert) => {
+  swal({
+    preConfirm: () => {
+      return false
+    },
+    animation: false
+  })
+
+  swal.clickConfirm()
+  assert.ok(swal.isVisible())
+})
+
+QUnit.test('animation param evaluates a function', (assert) => {
+  swal({
+    animation: () => false
+  })
+  assert.ok($('.swal2-popup').hasClass('swal2-noanimation'))
+
+  swal({
+    animation: () => true
+  })
+  assert.notOk($('.swal2-popup').hasClass('swal2-noanimation'))
+})

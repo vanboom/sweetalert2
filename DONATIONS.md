@@ -12,6 +12,10 @@ We would like to thank everyone who contributed to this library. If you find our
 
 # Donors
 
+- **Cassiano Montanari** (10 BRL)
+
+- **[VEI Hosting](http://www.veihosting.com/)** (20 USD)
+
 - **Daniel Seuffer** (10 EUR)
 
     > Thx for this very sweet alert!! And the continuous support. :-)

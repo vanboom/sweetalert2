@@ -121,6 +121,11 @@ const setParameters = (params) => {
     }
   }
 
+  // Animation
+  if (typeof params.animation === 'function') {
+    params.animation = params.animation.call()
+  }
+
   // Close button
   if (params.showCloseButton) {
     closeButton.setAttribute('aria-label', params.closeButtonAriaLabel)
@@ -575,7 +580,7 @@ const sweetAlert = (...args) => {
         } else {
           preConfirmPromise.then(
             (preConfirmValue) => {
-              if (dom.isVisible(dom.getValidationError())) {
+              if (dom.isVisible(dom.getValidationError()) || preConfirmValue === false) {
                 sweetAlert.hideLoading()
               } else {
                 succeedWith(preConfirmValue || value)
@@ -648,7 +653,7 @@ const sweetAlert = (...args) => {
           // Clicked 'cancel'
           } else if (targetedCancel && sweetAlert.isVisible()) {
             sweetAlert.disableButtons()
-            dismissWith('cancel')
+            dismissWith(sweetAlert.DismissReason.cancel)
           }
           break
         default:
@@ -665,18 +670,18 @@ const sweetAlert = (...args) => {
 
     // Closing popup by close button
     dom.getCloseButton().onclick = () => {
-      dismissWith('close')
+      dismissWith(sweetAlert.DismissReason.close)
     }
 
     if (params.toast) {
-      // Closing popup by overlay click
+      // Closing popup by backdrop click
       popup.onclick = (e) => {
         if (e.target !== popup || (params.showConfirmButton || params.showCancelButton)) {
           return
         }
         if (params.allowOutsideClick) {
           sweetAlert.closePopup(params.onClose)
-          dismissWith('overlay')
+          dismissWith(sweetAlert.DismissReason.backdrop)
         }
       }
     } else {
@@ -715,7 +720,7 @@ const sweetAlert = (...args) => {
           return
         }
         if (callIfFunction(params.allowOutsideClick)) {
-          dismissWith('overlay')
+          dismissWith(sweetAlert.DismissReason.backdrop)
         }
       }
     }
@@ -809,7 +814,7 @@ const sweetAlert = (...args) => {
 
       // ESC
       } else if ((e.key === 'Escape' || e.key === 'Esc') && callIfFunction(params.allowEscapeKey) === true) {
-        dismissWith('esc')
+        dismissWith(sweetAlert.DismissReason.esc)
       }
     }
 
@@ -1340,6 +1345,14 @@ sweetAlert.adaptInputValidator = (legacyValidator) => {
       .then(() => undefined, validationError => validationError)
   }
 }
+
+sweetAlert.DismissReason = Object.freeze({
+  cancel: 'cancel',
+  backdrop: 'overlay',
+  close: 'close',
+  esc: 'esc',
+  timer: 'timer'
+})
 
 sweetAlert.noop = () => { }
 
