@@ -52,7 +52,11 @@ export const init = (params) => {
   const textarea = getChildByClass(content, swalClasses.textarea)
 
   // a11y
+  popup.setAttribute('role', params.toast ? 'alert' : 'dialog')
   popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive')
+  if (!params.toast) {
+    popup.setAttribute('aria-modal', 'true')
+  }
 
   const resetValidationError = () => {
     sweetAlert.isVisible() && sweetAlert.resetValidationError()
@@ -71,7 +75,7 @@ export const init = (params) => {
 
   range.onchange = () => {
     resetValidationError()
-    range.previousSibling.value = range.value
+    range.nextSibling.value = range.value
   }
 
   return popup
@@ -82,7 +86,7 @@ export const init = (params) => {
  */
 
 const sweetHTML = `
- <div role="dialog" aria-modal="true" aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.popup}" tabindex="-1">
+ <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.popup}" tabindex="-1">
    <div class="${swalClasses.header}">
      <ul class="${swalClasses.progresssteps}"></ul>
      <div class="${swalClasses.icon} ${iconTypes.error}">
@@ -270,12 +274,9 @@ export const getChildByClass = (elem, className) => {
   }
 }
 
-export const show = (elem, display) => {
-  if (!display) {
-    display = (elem.id === swalClasses.content) ? 'block' : 'flex'
-  }
+export const show = (elem) => {
   elem.style.opacity = ''
-  elem.style.display = display
+  elem.style.display = (elem.id === swalClasses.content) ? 'block' : 'flex'
 }
 
 export const hide = (elem) => {

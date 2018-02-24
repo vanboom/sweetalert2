@@ -26,7 +26,7 @@
 
 <p align="center">
   <a href="https://sweetalert2.github.io/">
-    <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="515"><br>
+    <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="562" height="388"><br>
     See SweetAlert2 in action ↗
   </a>
 </p>
@@ -172,7 +172,7 @@ Contributors
 ------------
 
 This project exists thanks to all the people who contribute.
-<a href="graphs/contributors"><img src="https://opencollective.com/SweetAlert2/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/sweetalert2/sweetalert2/graphs/contributors"><img src="https://opencollective.com/SweetAlert2/contributors.svg?width=890&button=false" /></a>
 
 
 Contributing
@@ -186,13 +186,12 @@ If you would like to contribute enhancements or fixes, please do the following:
 
 3. When in the SweetAlert2 directory, run `npm install` or `yarn install` to install dependencies.
 
-4. Start gulp watcher `gulp watch` to automatically serve, build, and minify the SCSS and JS-files.
-
-5. Ensure that you didn't break any of tests:
-
-  - in browser: http://localhost:8080/test/qunit/
-  - via CLI: `npm test`
-
+4. To begin active development, run `npm start`. This does several things for you:
+ - Lints your code
+ - Builds the `dist` folder
+ - Serves sandbox.html @ http://localhost:8080/ (browser-sync ui:  http://localhost:8081/)
+ - Serves unit tests @ http://localhost:3000
+ - Re-lints, re-builds, re-loads and re-tests as necessary when files change
 
 Donations
 ---------
