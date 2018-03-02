@@ -1,4 +1,3 @@
-import { default as sweetAlert } from '../sweetalert2.js'
 import { swalClasses, iconTypes } from './classes.js'
 import { uniqueArray, error, warnOnce } from './utils.js'
 
@@ -42,40 +41,12 @@ export const init = (params) => {
   targetElement.appendChild(container)
 
   const popup = getPopup()
-  const content = getContent()
-  const input = getChildByClass(content, swalClasses.input)
-  const file = getChildByClass(content, swalClasses.file)
-  const range = content.querySelector(`.${swalClasses.range} input`)
-  const rangeOutput = content.querySelector(`.${swalClasses.range} output`)
-  const select = getChildByClass(content, swalClasses.select)
-  const checkbox = content.querySelector(`.${swalClasses.checkbox} input`)
-  const textarea = getChildByClass(content, swalClasses.textarea)
 
   // a11y
   popup.setAttribute('role', params.toast ? 'alert' : 'dialog')
   popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive')
   if (!params.toast) {
     popup.setAttribute('aria-modal', 'true')
-  }
-
-  const resetValidationError = () => {
-    isSwalVisible() && sweetAlert.resetValidationError()
-  }
-
-  input.oninput = resetValidationError
-  file.onchange = resetValidationError
-  select.onchange = resetValidationError
-  checkbox.onchange = resetValidationError
-  textarea.oninput = resetValidationError
-
-  range.oninput = () => {
-    resetValidationError()
-    rangeOutput.value = range.value
-  }
-
-  range.onchange = () => {
-    resetValidationError()
-    range.nextSibling.value = range.value
   }
 
   return popup

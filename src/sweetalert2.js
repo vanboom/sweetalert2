@@ -480,6 +480,24 @@ const sweetAlert = (...args) => {
     progressSteps: dom.getProgressSteps()
   }
 
+  { // initialize validation logic
+    const {content} = context.domCache
+    const resetValidationError = () => dom.isSwalVisible() && sweetAlert.resetValidationError()
+    dom.getChildByClass(content, swalClasses.input).oninput = resetValidationError
+    dom.getChildByClass(content, swalClasses.file).onchange = resetValidationError
+    dom.getChildByClass(content, swalClasses.select).onchange = resetValidationError
+    dom.getChildByClass(content, swalClasses.textarea).oninput = resetValidationError
+    content.querySelector(`.${swalClasses.checkbox} input`).onchange = resetValidationError
+    content.querySelector(`.${swalClasses.range} input`).oninput = () => {
+      resetValidationError()
+      content.querySelector(`.${swalClasses.range} output`).value = content.querySelector(`.${swalClasses.range} input`).value
+    }
+    content.querySelector(`.${swalClasses.range} input`).onchange = () => {
+      resetValidationError()
+      content.querySelector(`.${swalClasses.range} input`).nextSibling.value = content.querySelector(`.${swalClasses.range} input`).value
+    }
+  }
+
   return new Promise((resolve, reject) => {
     // functions to handle all resolving/rejecting/settling
     const succeedWith = (value) => {
