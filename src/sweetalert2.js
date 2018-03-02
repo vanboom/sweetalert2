@@ -582,7 +582,7 @@ const sweetAlert = (...args) => {
       switch (e.type) {
         case 'click':
           // Clicked 'confirm'
-          if (targetedConfirm && sweetAlert.isVisible()) {
+          if (targetedConfirm && dom.isSwalVisible()) {
             sweetAlert.disableButtons()
             if (params.input) {
               const inputValue = getInputValue()
@@ -627,7 +627,7 @@ const sweetAlert = (...args) => {
             }
 
           // Clicked 'cancel'
-          } else if (targetedCancel && sweetAlert.isVisible()) {
+          } else if (targetedCancel && dom.isSwalVisible()) {
             sweetAlert.disableButtons()
             dismissWith(sweetAlert.DismissReason.cancel)
           }
@@ -986,9 +986,7 @@ const sweetAlert = (...args) => {
 /*
  * Global function to determine if swal2 popup is shown
  */
-sweetAlert.isVisible = () => {
-  return !!dom.getPopup()
-}
+sweetAlert.isVisible = () => dom.isSwalVisible()
 
 /*
  * Global function for chaining sweetAlert popups

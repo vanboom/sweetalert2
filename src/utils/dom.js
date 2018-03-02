@@ -59,7 +59,7 @@ export const init = (params) => {
   }
 
   const resetValidationError = () => {
-    sweetAlert.isVisible() && sweetAlert.resetValidationError()
+    isSwalVisible() && sweetAlert.resetValidationError()
   }
 
   input.oninput = resetValidationError
@@ -133,6 +133,8 @@ const sweetHTML = `
 export const getContainer = () => document.body.querySelector('.' + swalClasses.container)
 
 export const getPopup = () => getContainer() ? getContainer().querySelector('.' + swalClasses.popup) : null
+
+export const isSwalVisible = () => Boolean(getPopup())
 
 export const getIcons = () => {
   const popup = getPopup()
