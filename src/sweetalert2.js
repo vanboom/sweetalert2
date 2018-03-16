@@ -5,6 +5,7 @@ import * as dom from './utils/dom/index'
 import setParameters from './utils/setParameters.js'
 import { DismissReason } from './utils/DismissReason'
 import {fixScrollbar, undoScrollbar} from './utils/scrollbarFix'
+import {signaturePad, fixSignature} from './utils/signatureFix'
 import {iOSfix, undoIOSfix} from './utils/iosFix'
 import {version} from '../package.json'
 
@@ -69,6 +70,7 @@ const openPopup = (animation, onBeforeOpen, onComplete) => {
   if (dom.isModal()) {
     fixScrollbar()
     iOSfix()
+    fixSignature()
   }
   dom.states.previousActiveElement = document.activeElement
   if (onComplete !== null && typeof onComplete === 'function') {
@@ -153,6 +155,9 @@ const sweetAlert = (...args) => {
           return input.checked ? input.value : null
         case 'file':
           return input.files.length ? input.files[0] : null
+        case 'signature':
+          if (signaturePad) return signaturePad.toDataURL('image/svg+xml')
+          break
         default:
           return params.inputAutoTrim ? input.value.trim() : input.value
       }
@@ -575,10 +580,16 @@ const sweetAlert = (...args) => {
         textarea.placeholder = params.inputPlaceholder
         dom.show(textarea)
         break
+      case 'signature':
+        const signature = dom.getChildByClass(domCache.content, swalClasses.signature)
+        signature.value = params.inputValue
+        signature.placeholder = params.inputPlaceholder
+        dom.show(signature)
+        break
       case null:
         break
       default:
-        error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "${params.input}"`)
+        error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file", "signature" or "url", got "${params.input}"`)
         break
     }
 
@@ -864,6 +875,7 @@ sweetAlert.getInput = (inputType) => {
       return null
     }
     switch (inputType) {
+      case 'signature':
       case 'select':
       case 'textarea':
       case 'file':

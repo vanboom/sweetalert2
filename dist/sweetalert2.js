@@ -82,7 +82,7 @@ var prefix = function prefix(items) {
   return result;
 };
 
-var swalClasses = prefix(['container', 'shown', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-text', 'image', 'input', 'has-input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen']);
+var swalClasses = prefix(['container', 'shown', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-text', 'image', 'input', 'has-input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'signature']);
 
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
@@ -363,7 +363,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = ('\n <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n       <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n       <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n       <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <div class="' + swalClasses.footer + '">\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
+var sweetHTML = ('\n  <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n    <div class="' + swalClasses.header + '">\n      <ul class="' + swalClasses.progresssteps + '"></ul>\n      <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n        <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n      </div>\n      <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n        <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n      <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n        <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n      <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n        <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n      <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n        <div class="swal2-success-circular-line-left"></div>\n        <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n        <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n        <div class="swal2-success-circular-line-right"></div>\n      </div>\n      <img class="' + swalClasses.image + '" />\n      <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n      <button type="button" class="' + swalClasses.close + '">\xD7</button>\n    </div>\n    <div class="' + swalClasses.content + '">\n      <div id="' + swalClasses.content + '"></div>\n      <input class="' + swalClasses.input + '" />\n\n      <div class="signature-pad ' + swalClasses.signature + '" ></div>\n      <div id="swal-signature-pad-body" class="signature-pad-body">\n        <canvas></canvas>\n      </div>\n      <div class="signature-pad-footer">\n        <div class="muted">Sign above\n          <span id="swal-signature-pad-clear" style="cursor:pointer;"> &bull; clear</a>\n        </div>\n      </div>\n      <input type="file" class="' + swalClasses.file + '" />\n      <div class="' + swalClasses.range + '">\n        <input type="range" />\n        <output></output>\n      </div>\n      <select class="' + swalClasses.select + '"></select>\n      <div class="' + swalClasses.radio + '"></div>\n      <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n        <input type="checkbox" />\n      </label>\n      <textarea class="' + swalClasses.textarea + '"></textarea>\n      <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n    </div>\n    <div class="' + swalClasses.actions + '">\n      <button type="button" class="' + swalClasses.confirm + '">OK</button>\n      <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n    </div>\n    <div class="' + swalClasses.footer + '">\n    </div>\n  </div>\n').replace(/(^|\n)\s*/g, '');
 
 /*
  * Add modal + backdrop to DOM
@@ -397,6 +397,7 @@ var init = function init(params) {
   var select = getChildByClass(content, swalClasses.select);
   var checkbox = content.querySelector('.' + swalClasses.checkbox + ' input');
   var textarea = getChildByClass(content, swalClasses.textarea);
+  var signature = content.querySelector('.' + swalClasses.signature + ' input');
 
   // a11y
   popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
@@ -814,6 +815,31 @@ var undoScrollbar = function undoScrollbar() {
   }
 };
 
+var signaturePad = void 0;
+
+var resizeCanvas = function resizeCanvas(canvas) {
+  var ratio = Math.max(window.devicePixelRatio || 1, 1);
+  canvas.width = canvas.offsetWidth * ratio;
+  canvas.height = canvas.offsetHeight * ratio;
+  canvas.getContext('2d').scale(ratio, ratio);
+};
+
+var fixSignature = function fixSignature() {
+  var canvas = document.querySelector('canvas');
+  if (canvas) {
+    var spb = document.getElementById('swal-signature-pad-body');
+    canvas.height = spb.clientHeight;
+    canvas.width = canvas.offsetWidth;
+    window.onresize = resizeCanvas(canvas);
+    resizeCanvas(canvas);
+    signaturePad = new SignaturePad(canvas, { penColor: 'DarkBlue' });
+    var spc = document.getElementById('swal-signature-pad-clear');
+    spc.addEventListener('click', function () {
+      signaturePad.clear();return false;
+    });
+  }
+};
+
 // Fix iOS scrolling http://stackoverflow.com/q/39626302/1331425
 var iOSfix = function iOSfix() {
   var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -903,6 +929,7 @@ var openPopup = function openPopup(animation, onBeforeOpen, onComplete) {
   if (isModal()) {
     fixScrollbar();
     iOSfix();
+    fixSignature();
   }
   states.previousActiveElement = document.activeElement;
   if (onComplete !== null && typeof onComplete === 'function') {
@@ -993,6 +1020,9 @@ var sweetAlert = function sweetAlert() {
           return input.checked ? input.value : null;
         case 'file':
           return input.files.length ? input.files[0] : null;
+        case 'signature':
+          if (signaturePad) return signaturePad.toDataURL('image/svg+xml');
+          break;
         default:
           return params.inputAutoTrim ? input.value.trim() : input.value;
       }
@@ -1416,10 +1446,16 @@ var sweetAlert = function sweetAlert() {
         textarea.placeholder = params.inputPlaceholder;
         show(textarea);
         break;
+      case 'signature':
+        var signature = getChildByClass(domCache.content, swalClasses.signature);
+        signature.value = params.inputValue;
+        signature.placeholder = params.inputPlaceholder;
+        show(signature);
+        break;
       case null:
         break;
       default:
-        error('Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "' + params.input + '"');
+        error('Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file", "signature" or "url", got "' + params.input + '"');
         break;
     }
 
@@ -1732,6 +1768,7 @@ sweetAlert.getInput = function (inputType) {
       return null;
     }
     switch (inputType) {
+      case 'signature':
       case 'select':
       case 'textarea':
       case 'file':

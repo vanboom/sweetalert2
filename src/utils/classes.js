@@ -65,7 +65,8 @@ export const swalClasses = prefix([
   'bottom-right',
   'grow-row',
   'grow-column',
-  'grow-fullscreen'
+  'grow-fullscreen',
+  'signature'
 ])
 
 export const iconTypes = prefix([

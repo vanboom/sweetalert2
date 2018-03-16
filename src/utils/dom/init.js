@@ -6,54 +6,64 @@ import { error } from '../utils'
 import sweetAlert from '../../sweetalert2'
 
 const sweetHTML = `
- <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.popup}" tabindex="-1">
-   <div class="${swalClasses.header}">
-     <ul class="${swalClasses.progresssteps}"></ul>
-     <div class="${swalClasses.icon} ${iconTypes.error}">
-       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
-     </div>
-     <div class="${swalClasses.icon} ${iconTypes.question}">
-       <span class="${swalClasses['icon-text']}">?</span>
+  <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.popup}" tabindex="-1">
+    <div class="${swalClasses.header}">
+      <ul class="${swalClasses.progresssteps}"></ul>
+      <div class="${swalClasses.icon} ${iconTypes.error}">
+        <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
       </div>
-     <div class="${swalClasses.icon} ${iconTypes.warning}">
-       <span class="${swalClasses['icon-text']}">!</span>
+      <div class="${swalClasses.icon} ${iconTypes.question}">
+        <span class="${swalClasses['icon-text']}">?</span>
       </div>
-     <div class="${swalClasses.icon} ${iconTypes.info}">
-       <span class="${swalClasses['icon-text']}">i</span>
+      <div class="${swalClasses.icon} ${iconTypes.warning}">
+        <span class="${swalClasses['icon-text']}">!</span>
       </div>
-     <div class="${swalClasses.icon} ${iconTypes.success}">
-       <div class="swal2-success-circular-line-left"></div>
-       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
-       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
-       <div class="swal2-success-circular-line-right"></div>
-     </div>
-     <img class="${swalClasses.image}" />
-     <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
-     <button type="button" class="${swalClasses.close}">×</button>
-   </div>
-   <div class="${swalClasses.content}">
-     <div id="${swalClasses.content}"></div>
-     <input class="${swalClasses.input}" />
-     <input type="file" class="${swalClasses.file}" />
-     <div class="${swalClasses.range}">
-       <input type="range" />
-       <output></output>
-     </div>
-     <select class="${swalClasses.select}"></select>
-     <div class="${swalClasses.radio}"></div>
-     <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
-       <input type="checkbox" />
-     </label>
-     <textarea class="${swalClasses.textarea}"></textarea>
-     <div class="${swalClasses.validationerror}" id="${swalClasses.validationerror}"></div>
-   </div>
-   <div class="${swalClasses.actions}">
-     <button type="button" class="${swalClasses.confirm}">OK</button>
-     <button type="button" class="${swalClasses.cancel}">Cancel</button>
-   </div>
-   <div class="${swalClasses.footer}">
-   </div>
- </div>
+      <div class="${swalClasses.icon} ${iconTypes.info}">
+        <span class="${swalClasses['icon-text']}">i</span>
+      </div>
+      <div class="${swalClasses.icon} ${iconTypes.success}">
+        <div class="swal2-success-circular-line-left"></div>
+        <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+        <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+        <div class="swal2-success-circular-line-right"></div>
+      </div>
+      <img class="${swalClasses.image}" />
+      <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+      <button type="button" class="${swalClasses.close}">×</button>
+    </div>
+    <div class="${swalClasses.content}">
+      <div id="${swalClasses.content}"></div>
+      <input class="${swalClasses.input}" />
+
+      <div class="signature-pad ${swalClasses.signature}" ></div>
+      <div id="swal-signature-pad-body" class="signature-pad-body">
+        <canvas></canvas>
+      </div>
+      <div class="signature-pad-footer">
+        <div class="muted">Sign above
+          <span id="swal-signature-pad-clear" style="cursor:pointer;"> &bull; clear</a>
+        </div>
+      </div>
+      <input type="file" class="${swalClasses.file}" />
+      <div class="${swalClasses.range}">
+        <input type="range" />
+        <output></output>
+      </div>
+      <select class="${swalClasses.select}"></select>
+      <div class="${swalClasses.radio}"></div>
+      <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
+        <input type="checkbox" />
+      </label>
+      <textarea class="${swalClasses.textarea}"></textarea>
+      <div class="${swalClasses.validationerror}" id="${swalClasses.validationerror}"></div>
+    </div>
+    <div class="${swalClasses.actions}">
+      <button type="button" class="${swalClasses.confirm}">OK</button>
+      <button type="button" class="${swalClasses.cancel}">Cancel</button>
+    </div>
+    <div class="${swalClasses.footer}">
+    </div>
+  </div>
 `.replace(/(^|\n)\s*/g, '')
 
 /*
@@ -95,7 +105,8 @@ export const init = (params) => {
   const select = getChildByClass(content, swalClasses.select)
   const checkbox = content.querySelector(`.${swalClasses.checkbox} input`)
   const textarea = getChildByClass(content, swalClasses.textarea)
-
+  const signature = content.querySelector(`.${swalClasses.signature} input`)
+  
   // a11y
   popup.setAttribute('role', params.toast ? 'alert' : 'dialog')
   popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive')
