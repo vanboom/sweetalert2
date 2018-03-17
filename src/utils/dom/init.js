@@ -35,13 +35,14 @@ const sweetHTML = `
       <div id="${swalClasses.content}"></div>
       <input class="${swalClasses.input}" />
 
-      <div class="signature-pad ${swalClasses.signature}" ></div>
-      <div id="swal-signature-pad-body" class="signature-pad-body">
-        <canvas></canvas>
-      </div>
-      <div class="signature-pad-footer">
-        <div class="muted">Sign above
-          <span id="swal-signature-pad-clear" style="cursor:pointer;"> &bull; clear</a>
+      <div class="${swalClasses.signature}" id="${swalClasses.signature}" >
+        <div id="swal-signature-pad-body" class="signature-pad-body">
+          <canvas></canvas>
+        </div>
+        <div class="signature-pad-footer">
+          <div class="muted">Sign above
+            <span id="swal-signature-pad-clear" style="cursor:pointer;"> &bull; clear</a>
+          </div>
         </div>
       </div>
       <input type="file" class="${swalClasses.file}" />
@@ -105,8 +106,7 @@ export const init = (params) => {
   const select = getChildByClass(content, swalClasses.select)
   const checkbox = content.querySelector(`.${swalClasses.checkbox} input`)
   const textarea = getChildByClass(content, swalClasses.textarea)
-  const signature = content.querySelector(`.${swalClasses.signature} input`)
-  
+
   // a11y
   popup.setAttribute('role', params.toast ? 'alert' : 'dialog')
   popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive')

@@ -249,7 +249,7 @@ body {
     }
 
     &.swal2-show {
-      animation: showSweetToast .5s;
+      animation: showSweetToast .2s;
     }
 
     &.swal2-hide {
@@ -271,22 +271,22 @@ body {
 // Animations
 @keyframes showSweetToast {
   0% {
-    transform: translateY(-.625em) rotateZ(2deg);
+    //transform: translateY(-.625em) rotateZ(2deg);
     opacity: 0;
   }
 
   33% {
-    transform: translateY(0) rotateZ(-2deg);
+    //transform: translateY(0) rotateZ(-2deg);
     opacity: .5;
   }
 
   66% {
-    transform: translateY(.3125em) rotateZ(2deg);
+    //transform: translateY(.3125em) rotateZ(2deg);
     opacity: .7;
   }
 
   100% {
-    transform: translateY(0) rotateZ(0);
+    //transform: translateY(0) rotateZ(0);
     opacity: 1;
   }
 }

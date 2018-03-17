@@ -61,7 +61,7 @@ export const getChildByClass = (elem, className) => {
 
 export const show = (elem) => {
   elem.style.opacity = ''
-  elem.style.display = (elem.id === swalClasses.content) ? 'block' : 'flex'
+  elem.style.display = (elem.id === swalClasses.content || elem.id === swalClasses.signature) ? 'block' : 'flex'
 }
 
 export const hide = (elem) => {

@@ -449,13 +449,12 @@ const sweetAlert = (...args) => {
     }
 
     // inputs
-    const inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea']
+    const inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'signature']
     let input
     for (let i = 0; i < inputTypes.length; i++) {
       const inputClass = swalClasses[inputTypes[i]]
       const inputContainer = dom.getChildByClass(domCache.content, inputClass)
       input = sweetAlert.getInput(inputTypes[i])
-
       // set attributes
       if (input) {
         for (let j in input.attributes) {
